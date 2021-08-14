@@ -1,15 +1,5 @@
 let autos=
-[{
-    marca:"Ford",
-    modelo:"Fiesta",
-    color:"Azul",
-    anio:2019,
-    km:200,
-    precio:150000,
-    cuotas:12,
-    patente:"APL123",
-    vendido:true, 
-},
+
 {
     marca:"Toyota",
     modelo:"Corolla",
@@ -21,28 +11,29 @@ let autos=
     patente:"JJK116",
     vendido:false, 
 
-}]
+}
 
 let persona = {
     nombre: "Juan",
-    capacidadDePagoEnCuotas: 30000,
+    capacidadDePagoEnCuotas: 7200,
     capacidadDePagoTotal: 100000000
     }
  
 let consesionaria = {
     
-    autosQuePuedeComprar:function(persona){
-        let autosParaLaVenta = this.autosParaLaVenta();
-        let puedeComprar = this.puedeComprar(persona,autosParaLaVenta);
-        let filtroAutos = puedeComprar.filter(function(auto){
-            if(auto === true){
-                return auto
-            }
-        })
-        return filtroAutos
-    }
+    puedeComprar:function(auto,persona){
+        let precioCuota = (auto.precio / auto.cuotas);
+        let condicionUno = auto.precio <= persona.capacidadDePagoTotal;
+        let condicionDos = persona.capacidadDePagoEnCuotas > precioCuota
+       
+        if (condicionUno && condicionDos){
+            return true
+      
+        } else return false
+        
+     },
 }
 
-console.log(consesionaria.autosQuePuedeComprar())
+console.log(consesionaria.puedeComprar(autos,persona))
 
 

@@ -76,15 +76,15 @@ let consesionaria ={
 
          autosQuePuedeComprar:function(persona){
             let autosParaLaVenta = this.autosParaLaVenta();
-            let puedeComprar = this.puedeComprar(autosParaLaVenta[0],persona);
-            
-            /*let filtroAutos = autosParaLaVenta.filter(function(auto){
-                    
-                })
-            
-            return filtroAutos */
-            //console.log(autosParaLaVenta)
-
+            //let puedeComprar = this.puedeComprar(/*autosParaLaVenta[0],persona*/); //solo aplica al primer elemento del array 
+            resultado = " ";
+            for(let i = 0 ; i<autosParaLaVenta.length ; i++){
+              if ((this.puedeComprar(autosParaLaVenta[i],persona)) === true){
+                  resultado = autosParaLaVenta[i]
+              }
+              //resultado =  this.puedeComprar(autosParaLaVenta[i],persona)
+            }
+            return resultado
         }
 
 }
