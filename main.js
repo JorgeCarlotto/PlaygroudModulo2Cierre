@@ -3,8 +3,8 @@ const autos = require('./autos');
 
 let persona = {
     nombre: "Juan",
-    capacidadDePagoEnCuotas: 20000,
-    capacidadDePagoTotal: 100000
+    capacidadDePagoEnCuotas: 7200,
+    capacidadDePagoTotal: 100000000
     }
 
 
@@ -74,16 +74,20 @@ let consesionaria ={
             } else return false
          },
 
-        autosQuePuedeComprar:function(persona){
+         autosQuePuedeComprar:function(persona){
             let autosParaLaVenta = this.autosParaLaVenta();
-            let puedeComprar = this.puedeComprar(persona,autosParaLaVenta);
-            let filtroAutos = autosParaLaVenta.filter(function(auto){
-                
-            })
+            let puedeComprar = this.puedeComprar(autosParaLaVenta[0],persona);
+            
+            /*let filtroAutos = autosParaLaVenta.filter(function(auto){
+                    
+                })
+            
+            return filtroAutos */
+            //console.log(autosParaLaVenta)
 
         }
 
 }
 
-console.log(consesionaria.autosQuePuedeComprar())
+console.log(consesionaria.autosQuePuedeComprar(persona))
 
