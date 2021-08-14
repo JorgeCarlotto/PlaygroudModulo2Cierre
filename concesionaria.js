@@ -1,11 +1,5 @@
 const autos = require('./autos');
-
-
-let persona = {
-    nombre: "Juan",
-    capacidadDePagoEnCuotas: 7200,
-    capacidadDePagoTotal: 100000000
-    }
+const persona = require('./persona')
 
 
 let consesionaria ={
@@ -76,18 +70,15 @@ let consesionaria ={
 
          autosQuePuedeComprar:function(persona){
             let autosParaLaVenta = this.autosParaLaVenta();
-            //let puedeComprar = this.puedeComprar(/*autosParaLaVenta[0],persona*/); //solo aplica al primer elemento del array 
-            resultado = " ";
+            resultado = [];
             for(let i = 0 ; i<autosParaLaVenta.length ; i++){
               if ((this.puedeComprar(autosParaLaVenta[i],persona)) === true){
-                  resultado = autosParaLaVenta[i]
+                  resultado.push(autosParaLaVenta[i]) 
               }
-              //resultado =  this.puedeComprar(autosParaLaVenta[i],persona)
             }
             return resultado
         }
+ 
+    }
 
-}
-
-console.log(consesionaria.autosQuePuedeComprar(persona))
 
